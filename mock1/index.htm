@@ -6,7 +6,7 @@
   <title>HCTraining - Formazione e Salute</title>
   <!-- Importa il font Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Configurazione di Tailwind: dark mode tramite class -->
+  <!-- Configurazione Tailwind: dark mode tramite class -->
   <script>
     tailwind.config = {
       darkMode: 'class'
@@ -15,19 +15,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-    /* Nasconde tutte le sezioni (pagine) tranne quella attiva */
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; }
+    /* Nasconde le pagine non attive */
+    .page { display: none; }
+    .page.active { display: block; }
   </style>
 </head>
 <body class="transition-colors duration-300 bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -35,13 +27,14 @@
   <header class="flex justify-between items-center p-4 max-w-7xl mx-auto">
     <h1 class="text-2xl font-bold">HCTraining</h1>
     <div class="flex items-center gap-4">
+      <!-- Link per Area Riservata resta nel top bar -->
       <a href="#" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition nav-link" data-target="area-riservata" data-i18n="nav_area_riservata">Area Riservata</a>
       <button id="langToggle" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">IT/EN</button>
       <button id="themeToggle" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">🍃</button>
     </div>
   </header>
 
-  <!-- Navigazione Principale -->
+  <!-- Navigazione Principale (snellita: rimosso FAQ e Contatti) -->
   <nav class="bg-gray-100 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
       <!-- Menù desktop -->
@@ -52,11 +45,9 @@
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="lavoro" data-i18n="nav_lavoro">Lavoro</a>
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="convenzioni" data-i18n="nav_convenzioni">Convenzioni</a>
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="blog" data-i18n="nav_blog">Blog</a>
-        <a href="#" class="nav-link hover:text-purple-600 transition" data-target="faq" data-i18n="nav_faq">FAQ</a>
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="programma-gol" data-i18n="nav_programma_gol">Programma GOL</a>
-        <a href="#" class="nav-link hover:text-purple-600 transition" data-target="contatti" data-i18n="nav_contatti">Contatti</a>
       </div>
-      <!-- Bottone Dropdown "Altro" (desktop) -->
+      <!-- Bottone Dropdown "Altro" (per voci supplementari) -->
       <div class="hidden md:block relative">
         <button id="moreButton" class="text-sm px-3 py-1 border rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition" data-i18n="sec_menu">Altro</button>
         <div id="moreDropdown" class="absolute right-0 mt-2 w-56 bg-gray-100 dark:bg-gray-800 shadow-lg hidden z-50">
@@ -73,12 +64,11 @@
           </ul>
         </div>
       </div>
-      <!-- Hamburger per mobile -->
+      <!-- Hamburger per Mobile -->
       <div class="md:hidden">
         <button id="mobileMenuButton" class="text-gray-800 dark:text-gray-100 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
@@ -92,20 +82,25 @@
         <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="lavoro" data-i18n="nav_lavoro">Lavoro</a></li>
         <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="convenzioni" data-i18n="nav_convenzioni">Convenzioni</a></li>
         <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="blog" data-i18n="nav_blog">Blog</a></li>
-        <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="faq" data-i18n="nav_faq">FAQ</a></li>
         <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="programma-gol" data-i18n="nav_programma_gol">Programma GOL</a></li>
-        <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="contatti" data-i18n="nav_contatti">Contatti</a></li>
-        <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="accreditamenti" data-i18n="sec_accreditamenti">Accreditamenti</a></li>
-        <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="progetti" data-i18n="sec_progetti">Progetti</a></li>
-        <li><a href="#" class="nav-link block hover:text-purple-600 transition" data-target="testimonianze" data-i18n="sec_testimonianze">Testimonianze Docenti</a></li>
+        <li>
+          <a href="#" class="nav-link block hover:text-purple-600 transition" data-target="accreditamenti" data-i18n="sec_accreditamenti">Accreditamenti</a>
+        </li>
+        <li>
+          <a href="#" class="nav-link block hover:text-purple-600 transition" data-target="progetti" data-i18n="sec_progetti">Progetti</a>
+        </li>
+        <li>
+          <a href="#" class="nav-link block hover:text-purple-600 transition" data-target="testimonianze" data-i18n="sec_testimonianze">Testimonianze Docenti</a>
+        </li>
       </ul>
     </div>
   </nav>
 
   <!-- Contenuto Principale -->
-  <main class="max-w-7xl mx-auto py-8">
+  <main class="max-w-7xl mx-auto py-8 px-4">
     <!-- Home / Hero -->
     <section id="home" class="page active relative" data-aos="fade-up">
+      <!-- Utilizza l'URL con blur per l'immagine home -->
       <img src="https://picsum.photos/1920/800/?random=1&blur=10" alt="Hero Image" class="w-full block">
       <div class="absolute inset-0 flex items-center justify-start pl-12 bg-black bg-opacity-40">
         <div class="text-left text-white">
@@ -118,9 +113,9 @@
       </div>
     </section>
 
-    <!-- Chi siamo (Testo a sinistra, immagine a destra) -->
+    <!-- Chi siamo -->
     <section id="chi-siamo" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="chi_siamo_title">Chi siamo</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="chi_siamo_content">
@@ -134,9 +129,9 @@
       </div>
     </section>
 
-    <!-- Formazione (Immagine a sinistra, testo a destra) -->
+    <!-- Formazione -->
     <section id="formazione" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div class="order-1">
           <img src="https://picsum.photos/800/600?random=3" alt="Corsi di Formazione" class="w-full rounded-lg shadow-lg">
         </div>
@@ -150,13 +145,13 @@
       </div>
     </section>
 
-    <!-- Lavoro (Testo a sinistra, immagine a destra) -->
+    <!-- Lavoro -->
     <section id="lavoro" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="lavoro_title">Lavoro</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="lavoro_content">
-            Esplora le opportunità di carriera in un ambiente dinamico e innovativo, dove la formazione è al centro dello sviluppo professionale.
+            Esplora le opportunità di carriera e le offerte di lavoro in un ambiente dinamico e innovativo.
           </p>
           <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Vedi le offerte</a>
         </div>
@@ -166,9 +161,9 @@
       </div>
     </section>
 
-    <!-- Convenzioni (Immagine a sinistra, testo a destra) -->
+    <!-- Convenzioni -->
     <section id="convenzioni" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div class="order-1">
           <img src="https://picsum.photos/800/600?random=5" alt="Convenzioni" class="w-full rounded-lg shadow-lg">
         </div>
@@ -182,13 +177,13 @@
       </div>
     </section>
 
-    <!-- Blog (Testo a sinistra, immagine a destra) -->
+    <!-- Blog -->
     <section id="blog" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="blog_title">Blog</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="blog_content">
-            Scopri articoli, approfondimenti e storie di successo nel mondo della formazione sanitaria.
+            Leggi i nostri ultimi articoli, approfondimenti e storie di successo nel mondo della formazione sanitaria.
           </p>
           <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Leggi il blog</a>
         </div>
@@ -198,29 +193,37 @@
       </div>
     </section>
 
-    <!-- FAQ (Immagine a sinistra, testo a destra) -->
+    <!-- FAQ: Sezione con esempi di domande e risposte -->
     <section id="faq" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
-        <div class="order-1">
-          <img src="https://picsum.photos/800/600?random=7" alt="FAQ" class="w-full rounded-lg shadow-lg">
-        </div>
-        <div class="order-2">
-          <h3 class="text-3xl font-bold mb-4" data-i18n="faq_title">FAQ</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="faq_content">
-            Trova le risposte alle domande più frequenti sui nostri programmi e servizi, per aiutarti a orientarti al meglio.
-          </p>
-          <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Scopri le FAQ</a>
-        </div>
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold mb-6" data-i18n="faq_title">FAQ</h3>
+        <!-- Utilizzo di <details> per creare un effetto accordion -->
+        <details class="mb-4 border-b pb-2">
+          <summary class="font-semibold cursor-pointer">Domanda 1: Quali sono i requisiti per iscrivermi?</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: I requisiti variano in base al corso, ma generalmente è richiesta una base formativa nel settore sanitario e la volontà di aggiornarsi professionalmente.</p>
+        </details>
+        <details class="mb-4 border-b pb-2">
+          <summary class="font-semibold cursor-pointer">Domanda 2: Quali sono le modalità di pagamento?</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Offriamo diverse modalità di pagamento, inclusi pagamenti rateali e finanziamenti, per rendere i corsi accessibili a tutti.</p>
+        </details>
+        <details class="mb-4 border-b pb-2">
+          <summary class="font-semibold cursor-pointer">Domanda 3: Posso ottenere un attestato di partecipazione?</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Sì, al termine dei nostri percorsi formativi rilasciamo un attestato ufficiale che certifica le competenze acquisite.</p>
+        </details>
+        <details class="mb-4 border-b pb-2">
+          <summary class="font-semibold cursor-pointer">Domanda 4: Come posso contattare il supporto?</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Puoi contattarci tramite il form nella sezione "Contatti" oppure inviarci una email a info@hctraining.com.</p>
+        </details>
       </div>
     </section>
 
-    <!-- Programma GOL (Testo a sinistra, immagine a destra) -->
+    <!-- Programma GOL -->
     <section id="programma-gol" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="programma_gol_title">Programma GOL</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="programma_gol_content">
-            Il programma GOL, parte del Piano nazionale di ripresa e resilienza, riqualifica i servizi di politica attiva del lavoro con 4,4 miliardi di euro di risorse, coinvolgendo milioni di beneficiari entro il 2025.
+            Il programma GOL, parte del Piano nazionale di ripresa e resilienza, mira a riqualificare i servizi di politica attiva del lavoro con 4,4 miliardi di euro di risorse, coinvolgendo milioni di beneficiari entro il 2025.
           </p>
           <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Scopri il programma</a>
         </div>
@@ -230,7 +233,7 @@
       </div>
     </section>
 
-    <!-- Contatti (Testo sopra form) -->
+    <!-- Contatti: non più nel menu superiore, ora qui -->
     <section id="contatti" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto px-4">
         <h3 class="text-3xl font-bold mb-4" data-i18n="contatti_title">Contatti</h3>
@@ -269,9 +272,9 @@
       </form>
     </section>
 
-    <!-- Accreditamenti (Testo a sinistra, immagine a destra) -->
+    <!-- Accreditamenti -->
     <section id="accreditamenti" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="sec_accreditamenti">Accreditamenti</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="sec_accreditamenti_content">
@@ -285,9 +288,9 @@
       </div>
     </section>
 
-    <!-- Progetti (Immagine a sinistra, testo a destra) -->
+    <!-- Progetti -->
     <section id="progetti" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div class="order-1">
           <img src="https://picsum.photos/800/600?random=11" alt="Progetti" class="w-full rounded-lg shadow-lg">
         </div>
@@ -301,9 +304,9 @@
       </div>
     </section>
 
-    <!-- Testimonianze Docenti (Testo a sinistra, immagine a destra) -->
+    <!-- Testimonianze Docenti -->
     <section id="testimonianze" class="page py-16" data-aos="fade-up">
-      <div class="container mx-auto px-4 md:grid md:grid-cols-2 md:gap-8 items-center">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
         <div>
           <h3 class="text-3xl font-bold mb-4" data-i18n="sec_testimonianze">Testimonianze Docenti</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="sec_testimonianze_content">
@@ -318,9 +321,17 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-6" data-aos="fade-up">
-    &copy; 2025 HCTraining. All rights reserved.
+  <!-- Footer: contiene link a FAQ e Contatti -->
+  <footer class="bg-gray-100 dark:bg-gray-800 py-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 HCTraining. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#faq" class="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition">FAQ</a>
+          <a href="#contatti" class="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition">Contatti</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
@@ -328,6 +339,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       AOS.init({ duration: 1000 });
+
       // SPA Navigation: mostra solo la pagina selezionata
       const navLinks = document.querySelectorAll('.nav-link');
       const pages = document.querySelectorAll('.page');
@@ -346,19 +358,22 @@
           }
         });
       });
-      // Mobile menu toggle
+
+      // Toggle menù mobile
       const mobileMenuButton = document.getElementById('mobileMenuButton');
       const mobileMenu = document.getElementById('mobileMenu');
       mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
-      // Dropdown "Altro"
+
+      // Toggle dropdown "Altro"
       const moreButton = document.getElementById('moreButton');
       const moreDropdown = document.getElementById('moreDropdown');
       moreButton.addEventListener('click', () => {
         moreDropdown.classList.toggle('hidden');
       });
-      // Theme toggle: applica la classe "dark" su <html> e <body>
+
+      // THEME TOGGLE: applica la classe "dark" su <html> e <body>
       const themeToggle = document.getElementById('themeToggle');
       const html = document.documentElement;
       const body = document.body;
@@ -387,7 +402,8 @@
         applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
       });
-      // Language toggle: default è italiano
+
+      // LANGUAGE TOGGLE: default è italiano
       const langToggle = document.getElementById('langToggle');
       let currentLang = 'it';
       const translations = {
@@ -398,7 +414,6 @@
           nav_lavoro: "Work",
           nav_convenzioni: "Agreements",
           nav_blog: "Blog",
-          nav_faq: "FAQ",
           nav_programma_gol: "GOL Program",
           nav_contatti: "Contact",
           nav_area_riservata: "Reserved Area",
@@ -439,7 +454,6 @@
           nav_lavoro: "Lavoro",
           nav_convenzioni: "Convenzioni",
           nav_blog: "Blog",
-          nav_faq: "FAQ",
           nav_programma_gol: "Programma GOL",
           nav_contatti: "Contatti",
           nav_area_riservata: "Area Riservata",
