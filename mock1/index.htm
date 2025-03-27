@@ -15,11 +15,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', sans-serif; }
-    /* Nasconde le pagine non attive */
-    .page { display: none; }
-    .page.active { display: block; }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Nasconde le sezioni non attive */
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
   </style>
 </head>
 <body class="transition-colors duration-300 bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -27,14 +35,13 @@
   <header class="flex justify-between items-center p-4 max-w-7xl mx-auto">
     <h1 class="text-2xl font-bold">HCTraining</h1>
     <div class="flex items-center gap-4">
-      <!-- Link per Area Riservata resta nel top bar -->
-      <a href="#" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition nav-link" data-target="area-riservata" data-i18n="nav_area_riservata">Area Riservata</a>
+      <a href="#" class="nav-link text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition" data-target="area-riservata" data-i18n="nav_area_riservata">Area Riservata</a>
       <button id="langToggle" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">IT/EN</button>
       <button id="themeToggle" class="text-sm px-3 py-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">🍃</button>
     </div>
   </header>
 
-  <!-- Navigazione Principale (snellita: rimosso FAQ e Contatti) -->
+  <!-- Navigazione Principale -->
   <nav class="bg-gray-100 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
       <!-- Menù desktop -->
@@ -47,7 +54,7 @@
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="blog" data-i18n="nav_blog">Blog</a>
         <a href="#" class="nav-link hover:text-purple-600 transition" data-target="programma-gol" data-i18n="nav_programma_gol">Programma GOL</a>
       </div>
-      <!-- Bottone Dropdown "Altro" (per voci supplementari) -->
+      <!-- Bottone Dropdown "Altro" (desktop) -->
       <div class="hidden md:block relative">
         <button id="moreButton" class="text-sm px-3 py-1 border rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition" data-i18n="sec_menu">Altro</button>
         <div id="moreDropdown" class="absolute right-0 mt-2 w-56 bg-gray-100 dark:bg-gray-800 shadow-lg hidden z-50">
@@ -64,7 +71,7 @@
           </ul>
         </div>
       </div>
-      <!-- Hamburger per Mobile -->
+      <!-- Hamburger per mobile -->
       <div class="md:hidden">
         <button id="mobileMenuButton" class="text-gray-800 dark:text-gray-100 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,23 +103,22 @@
     </div>
   </nav>
 
-  <!-- Contenuto Principale -->
-  <main class="max-w-7xl mx-auto py-8 px-4">
-    <!-- Home / Hero -->
-    <section id="home" class="page active relative" data-aos="fade-up">
-      <!-- Utilizza l'URL con blur per l'immagine home -->
-      <img src="https://picsum.photos/1920/800/?random=1&blur=10" alt="Hero Image" class="w-full block">
-      <div class="absolute inset-0 flex items-center justify-start pl-12 bg-black bg-opacity-40">
-        <div class="text-left text-white">
-          <h2 class="text-4xl font-extrabold mb-4" data-i18n="hero_title">Benvenuti in HCTraining</h2>
-          <p class="text-lg mb-6" data-i18n="hero_desc">HCTraining offre formazione principalmente in ambito sanitario, ma non solo.</p>
-          <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-purple-700 transition">
-            <span data-i18n="get_started">Inizia ora</span>
-          </a>
-        </div>
+  <!-- Sezione Home: posizionata fuori dal container per estendersi a tutta larghezza -->
+  <section id="home" class="page active relative" data-aos="fade-up">
+    <img src="https://picsum.photos/1920/800/?random=1&blur=10" alt="Hero Image" class="w-full block">
+    <div class="absolute inset-0 flex items-center justify-start pl-12 bg-black bg-opacity-40">
+      <div class="text-left text-white">
+        <h2 class="text-4xl font-extrabold mb-4" data-i18n="hero_title">Benvenuti in HCTraining</h2>
+        <p class="text-lg mb-6" data-i18n="hero_desc">HCTraining offre formazione principalmente in ambito sanitario, ma non solo.</p>
+        <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-purple-700 transition">
+          <span data-i18n="get_started">Inizia ora</span>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- Contenuto Principale per le altre sezioni -->
+  <main class="max-w-7xl mx-auto py-8 px-4">
     <!-- Chi siamo -->
     <section id="chi-siamo" class="page py-16" data-aos="fade-up">
       <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
@@ -193,26 +199,25 @@
       </div>
     </section>
 
-    <!-- FAQ: Sezione con esempi di domande e risposte -->
+    <!-- FAQ -->
     <section id="faq" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto px-4">
         <h3 class="text-3xl font-bold mb-6" data-i18n="faq_title">FAQ</h3>
-        <!-- Utilizzo di <details> per creare un effetto accordion -->
         <details class="mb-4 border-b pb-2">
           <summary class="font-semibold cursor-pointer">Domanda 1: Quali sono i requisiti per iscrivermi?</summary>
-          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: I requisiti variano in base al corso, ma generalmente è richiesta una base formativa nel settore sanitario e la volontà di aggiornarsi professionalmente.</p>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">I requisiti variano in base al corso, ma in genere è richiesta una base formativa nel settore sanitario.</p>
         </details>
         <details class="mb-4 border-b pb-2">
           <summary class="font-semibold cursor-pointer">Domanda 2: Quali sono le modalità di pagamento?</summary>
-          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Offriamo diverse modalità di pagamento, inclusi pagamenti rateali e finanziamenti, per rendere i corsi accessibili a tutti.</p>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Offriamo diverse soluzioni di pagamento, inclusi pagamenti rateali e finanziamenti.</p>
         </details>
         <details class="mb-4 border-b pb-2">
-          <summary class="font-semibold cursor-pointer">Domanda 3: Posso ottenere un attestato di partecipazione?</summary>
-          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Sì, al termine dei nostri percorsi formativi rilasciamo un attestato ufficiale che certifica le competenze acquisite.</p>
+          <summary class="font-semibold cursor-pointer">Domanda 3: Ricevo un attestato di partecipazione?</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Sì, al termine dei percorsi formativi viene rilasciato un attestato ufficiale.</p>
         </details>
         <details class="mb-4 border-b pb-2">
           <summary class="font-semibold cursor-pointer">Domanda 4: Come posso contattare il supporto?</summary>
-          <p class="mt-2 text-gray-600 dark:text-gray-300">Risposta: Puoi contattarci tramite il form nella sezione "Contatti" oppure inviarci una email a info@hctraining.com.</p>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Puoi utilizzare il form nella sezione "Contatti" oppure inviarci un’email a info@hctraining.com.</p>
         </details>
       </div>
     </section>
@@ -233,7 +238,7 @@
       </div>
     </section>
 
-    <!-- Contatti: non più nel menu superiore, ora qui -->
+    <!-- Contatti -->
     <section id="contatti" class="page py-16 bg-gray-50 dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto px-4">
         <h3 class="text-3xl font-bold mb-4" data-i18n="contatti_title">Contatti</h3>
@@ -321,14 +326,15 @@
     </section>
   </main>
 
-  <!-- Footer: contiene link a FAQ e Contatti -->
+  <!-- Footer: aggiunti i link FAQ e Contatti -->
   <footer class="bg-gray-100 dark:bg-gray-800 py-6">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 HCTraining. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#faq" class="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition">FAQ</a>
-          <a href="#contatti" class="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition">Contatti</a>
+          <!-- Aggiunti classi e data-target per abilitare il comportamento SPA -->
+          <a href="#" class="nav-link text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition" data-target="faq" data-i18n="faq_title">FAQ</a>
+          <a href="#" class="nav-link text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition" data-target="contatti" data-i18n="contatti_title">Contatti</a>
         </div>
       </div>
     </div>
@@ -339,7 +345,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       AOS.init({ duration: 1000 });
-
+      
       // SPA Navigation: mostra solo la pagina selezionata
       const navLinks = document.querySelectorAll('.nav-link');
       const pages = document.querySelectorAll('.page');
@@ -349,7 +355,9 @@
           const target = this.getAttribute('data-target');
           pages.forEach(page => {
             page.classList.toggle('active', page.id === target);
-            if (page.id === target) page.scrollIntoView({ behavior: 'smooth' });
+            if (page.id === target) {
+              page.scrollIntoView({ behavior: 'smooth' });
+            }
           });
           // Nasconde il menù mobile se aperto
           const mobileMenu = document.getElementById('mobileMenu');
@@ -358,21 +366,21 @@
           }
         });
       });
-
+      
       // Toggle menù mobile
       const mobileMenuButton = document.getElementById('mobileMenuButton');
       const mobileMenu = document.getElementById('mobileMenu');
       mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
-
+      
       // Toggle dropdown "Altro"
       const moreButton = document.getElementById('moreButton');
       const moreDropdown = document.getElementById('moreDropdown');
       moreButton.addEventListener('click', () => {
         moreDropdown.classList.toggle('hidden');
       });
-
+      
       // THEME TOGGLE: applica la classe "dark" su <html> e <body>
       const themeToggle = document.getElementById('themeToggle');
       const html = document.documentElement;
@@ -402,7 +410,7 @@
         applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
       });
-
+      
       // LANGUAGE TOGGLE: default è italiano
       const langToggle = document.getElementById('langToggle');
       let currentLang = 'it';
