@@ -240,4 +240,267 @@
       </div>
       <form class="max-w-lg mx-auto space-y-6 px-4">
         <input type="text" placeholder="Nome" class="w-full px-4 py-3 rounded border bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-        <
+        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded border bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <textarea placeholder="Messaggio" class="w-full px-4 py-3 rounded border bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white h-32"></textarea>
+        <button type="submit" class="w-full bg-purple-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-purple-700 transition">
+          <span data-i18n="send">Invia</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- Area Riservata: Form di sample -->
+    <section id="area-riservata" class="page py-16" data-aos="fade-up">
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold mb-4" data-i18n="area_riservata_title">Area Riservata</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="area_riservata_content">
+          Accedi all'area riservata inserendo le tue credenziali.
+        </p>
+      </div>
+      <form class="max-w-md mx-auto space-y-4 px-4">
+        <div>
+          <label for="username" class="block mb-1">Username</label>
+          <input type="text" id="username" class="w-full px-4 py-2 border rounded" placeholder="Inserisci username">
+        </div>
+        <div>
+          <label for="password" class="block mb-1">Password</label>
+          <input type="password" id="password" class="w-full px-4 py-2 border rounded" placeholder="Inserisci password">
+        </div>
+        <button type="submit" class="w-full bg-purple-600 text-white font-semibold px-4 py-2 rounded hover:bg-purple-700 transition">Accedi</button>
+      </form>
+    </section>
+
+    <!-- Accreditamenti -->
+    <section id="accreditamenti" class="page py-16" data-aos="fade-up">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-4" data-i18n="sec_accreditamenti">Accreditamenti</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="sec_accreditamenti_content">
+            Scopri i nostri accreditamenti e certificazioni che attestano la nostra qualità.
+          </p>
+          <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Leggi di più</a>
+        </div>
+        <div>
+          <img src="https://picsum.photos/800/600?random=10" alt="Accreditamenti" class="w-full rounded-lg shadow-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Progetti -->
+    <section id="progetti" class="page py-16" data-aos="fade-up">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
+        <div class="order-1">
+          <img src="https://picsum.photos/800/600?random=11" alt="Progetti" class="w-full rounded-lg shadow-lg">
+        </div>
+        <div class="order-2">
+          <h3 class="text-3xl font-bold mb-4" data-i18n="sec_progetti">Progetti</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="sec_progetti_content">
+            Esplora i nostri progetti innovativi e casi studio che mostrano la nostra esperienza e il nostro impegno nel settore della formazione.
+          </p>
+          <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Scopri i progetti</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonianze Docenti -->
+    <section id="testimonianze" class="page py-16" data-aos="fade-up">
+      <div class="container mx-auto md:grid md:grid-cols-2 md:gap-8 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-4" data-i18n="sec_testimonianze">Testimonianze Docenti</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="sec_testimonianze_content">
+            Leggi le testimonianze dei nostri docenti ed esperti formativi che condividono la loro esperienza e il valore dei nostri programmi.
+          </p>
+          <a href="#" class="inline-block bg-purple-600 text-white font-semibold px-5 py-3 rounded-md hover:bg-purple-700 transition">Leggi le testimonianze</a>
+        </div>
+        <div>
+          <img src="https://picsum.photos/800/600?random=12" alt="Testimonianze" class="w-full rounded-lg shadow-lg">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: ora contiene anche i link a FAQ e Contatti -->
+  <footer class="bg-gray-100 dark:bg-gray-800 py-6">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 HCTraining. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="nav-link text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition" data-target="faq" data-i18n="faq_title">FAQ</a>
+          <a href="#" class="nav-link text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 transition" data-target="contatti" data-i18n="contatti_title">Contatti</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init({ duration: 1000 });
+      
+      // SPA Navigation: mostra solo la pagina selezionata
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pages = document.querySelectorAll('.page');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = this.getAttribute('data-target');
+          pages.forEach(page => {
+            page.classList.toggle('active', page.id === target);
+            if (page.id === target) page.scrollIntoView({ behavior: 'smooth' });
+          });
+          // Nasconde il menù mobile se aperto
+          const mobileMenu = document.getElementById('mobileMenu');
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      });
+      
+      // Toggle menù mobile
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Toggle dropdown "Altro"
+      const moreButton = document.getElementById('moreButton');
+      const moreDropdown = document.getElementById('moreDropdown');
+      moreButton.addEventListener('click', () => {
+        moreDropdown.classList.toggle('hidden');
+      });
+      
+      // THEME TOGGLE: applica la classe "dark" su <html> e <body>
+      const themeToggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      const body = document.body;
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          html.classList.add('dark');
+          body.classList.add('dark');
+          themeToggle.innerText = '☀️';
+        } else {
+          html.classList.remove('dark');
+          body.classList.remove('dark');
+          themeToggle.innerText = '🍃';
+        }
+      }
+      let savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        applyTheme(savedTheme);
+        localStorage.setItem('theme', savedTheme);
+      }
+      themeToggle.addEventListener('click', () => {
+        let currentTheme = localStorage.getItem('theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+      
+      // LANGUAGE TOGGLE: default è italiano
+      const langToggle = document.getElementById('langToggle');
+      let currentLang = 'it';
+      const translations = {
+        en: {
+          nav_home: "Home",
+          nav_chi_siamo: "About Us",
+          nav_formazione: "Training",
+          nav_lavoro: "Work",
+          nav_convenzioni: "Agreements",
+          nav_blog: "Blog",
+          nav_programma_gol: "GOL Program",
+          nav_contatti: "Contact",
+          nav_area_riservata: "Reserved Area",
+          sec_accreditamenti: "Accreditations",
+          sec_progetti: "Projects",
+          sec_testimonianze: "Teacher Testimonials",
+          sec_menu: "More",
+          hero_title: "Welcome to HCTraining",
+          hero_desc: "HCTraining offers training primarily in the healthcare sector, but not only.",
+          get_started: "Get Started",
+          chi_siamo_title: "About Us",
+          chi_siamo_content: "We are a team of professionals dedicated to delivering high-quality training in healthcare and beyond.",
+          formazione_title: "Training",
+          formazione_content: "Our training programs include workshops, seminars, and courses designed to enhance your skills in the healthcare industry.",
+          lavoro_title: "Work",
+          lavoro_content: "Explore career opportunities and job openings in the dynamic field of healthcare training.",
+          convenzioni_title: "Agreements",
+          convenzioni_content: "We have established partnerships with leading organizations to bring you the best training opportunities.",
+          blog_title: "Blog",
+          blog_content: "Read our latest articles and updates on healthcare training, industry trends, and more.",
+          faq_title: "FAQ",
+          faq_content: "Find answers to common questions about our training programs and services.",
+          programma_gol_title: "GOL Program",
+          programma_gol_content: "The GOL program is a reform action provided by Italy's National Recovery and Resilience Plan (Mission 5, Component 1) aimed at retraining active labor policy services. It provides resources amounting to 4.4 billion euros. By 2025, it will involve 3 million beneficiaries, including 800,000 in training activities, 300,000 of which are related to digital skills. GOL is implemented by Regions and Autonomous Provinces based on Regional Plans (Par) approved by Anpal. Its implementation is connected to the Enhancement Plan for Employment Centers and the National New Skills Plan.",
+          contatti_title: "Contact",
+          contatti_content: "Reach out to us for more information about our programs and services.",
+          area_riservata_title: "Reserved Area",
+          area_riservata_content: "Access exclusive content reserved for our partners and clients.",
+          sec_accreditamenti_content: "Learn about our accreditations and certifications that endorse our quality.",
+          sec_progetti_content: "Explore our innovative projects and case studies that showcase our expertise.",
+          sec_testimonianze_content: "Read what our expert instructors and training partners have to say about our programs.",
+          send: "Send"
+        },
+        it: {
+          nav_home: "Home",
+          nav_chi_siamo: "Chi siamo",
+          nav_formazione: "Formazione",
+          nav_lavoro: "Lavoro",
+          nav_convenzioni: "Convenzioni",
+          nav_blog: "Blog",
+          nav_programma_gol: "Programma GOL",
+          nav_contatti: "Contatti",
+          nav_area_riservata: "Area Riservata",
+          sec_accreditamenti: "Accreditamenti",
+          sec_progetti: "Progetti",
+          sec_testimonianze: "Testimonianze Docenti",
+          sec_menu: "Altro",
+          hero_title: "Benvenuti in HCTraining",
+          hero_desc: "HCTraining offre formazione principalmente in ambito sanitario, ma non solo.",
+          get_started: "Inizia ora",
+          chi_siamo_title: "Chi siamo",
+          chi_siamo_content: "Siamo un team di professionisti dedicati a fornire formazione di alta qualità nel settore sanitario e oltre.",
+          formazione_title: "Formazione",
+          formazione_content: "I nostri programmi formativi includono workshop, seminari e corsi progettati per migliorare le tue competenze.",
+          lavoro_title: "Lavoro",
+          lavoro_content: "Esplora le opportunità di carriera e le offerte di lavoro nel campo della formazione sanitaria.",
+          convenzioni_title: "Convenzioni",
+          convenzioni_content: "Abbiamo instaurato partnership con organizzazioni leader per offrirti le migliori opportunità formative.",
+          blog_title: "Blog",
+          blog_content: "Leggi i nostri ultimi articoli e aggiornamenti sulla formazione sanitaria, le tendenze del settore e altro ancora.",
+          faq_title: "FAQ",
+          faq_content: "Trova le risposte alle domande più frequenti sui nostri programmi formativi e servizi.",
+          programma_gol_title: "Programma GOL",
+          programma_gol_content: "Il programma GOL è un’azione di riforma prevista dal Piano nazionale di ripresa e resilienza dell’Italia (Missione 5, Componente 1) per riqualificare i servizi di politica attiva del lavoro. Dispone di risorse pari a 4,4 miliardi di euro. Entro il 2025 coinvolgerà 3 milioni di beneficiari, di cui 800.000 in attività formative, 300.000 delle quali relative alle competenze digitali. Gol è attuato dalle Regioni e Province autonome sulla base dei Piani regionali (Par) approvati da Anpal. La sua attuazione è connessa al Piano di potenziamento dei centri per l’impiego e al Piano nazionale nuove competenze.",
+          contatti_title: "Contatti",
+          contatti_content: "Contattaci per maggiori informazioni sui nostri programmi e servizi.",
+          area_riservata_title: "Area Riservata",
+          area_riservata_content: "Accedi ai contenuti esclusivi riservati ai nostri partner e clienti.",
+          sec_accreditamenti_content: "Scopri i nostri accreditamenti e certificazioni che attestano la nostra qualità.",
+          sec_progetti_content: "Esplora i nostri progetti innovativi e casi studio che mostrano la nostra esperienza.",
+          sec_testimonianze_content: "Leggi le testimonianze dei nostri docenti ed esperti formativi.",
+          send: "Invia"
+        }
+      };
+      langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'it' ? 'en' : 'it';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key];
+          }
+        });
+      });
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    });
+  </script>
+</body>
+</html>
