@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Il Mondo Magico del Cinema - Nerd Edition</title>
+  <title>Il Mondo Magico del Cinema Nerd</title>
   <style>
     /* Reset e stili di base */
     * {
@@ -17,7 +17,7 @@
       color: #fff;
       line-height: 1.6;
     }
-    /* Header: logo a sinistra, menu a destra */
+    /* Header: logo a sinistra e menu a destra */
     header {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px 40px;
@@ -49,7 +49,18 @@
     nav ul li a:hover {
       color: #FFD700;
     }
-    /* Sezioni Hero (una per ogni "pagina" virtuale) */
+    /* Main e gestione delle "pagine" */
+    main {
+      position: relative;
+      padding: 20px;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    /* Sezione Hero per ogni pagina */
     .hero {
       height: 400px;
       background: url('nerd-cinema.jpg') no-repeat center center/cover;
@@ -57,9 +68,10 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      margin-bottom: 20px;
     }
     .hero::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -95,31 +107,11 @@
       background: #FFD700;
       transform: scale(1.05);
     }
-    /* Layout della pagina (ogni sezione rappresenta una "pagina" virtuale) */
-    main section {
-      margin-bottom: 40px;
-    }
     /* Footer */
     footer {
       background: rgba(0,0,0,0.8);
       padding: 20px 40px;
       text-align: center;
-      position: relative;
-    }
-    .footer-links {
-      position: absolute;
-      bottom: 20px;
-      left: 40px;
-    }
-    .footer-links a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      margin-right: 10px;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover {
-      color: #FFD700;
     }
   </style>
 </head>
@@ -128,95 +120,111 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <a href="#home"><img src="logo-nerd.png" alt="Logo Nerd Cinema"></a>
+        <a href="#" data-target="home"><img src="logo-nerd.png" alt="Logo Nerd Cinema"></a>
       </div>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#ultime-uscite">Ultime Uscite</a></li>
-          <li><a href="#recensioni">Recensioni</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="#" data-target="home">Home</a></li>
+          <li><a href="#" data-target="nuove-uscite">Nuove Uscite</a></li>
+          <li><a href="#" data-target="contatti">Contatti</a></li>
+          <li><a href="#" data-target="faq">FAQ</a></li>
+          <li><a href="#" data-target="blog">Blog</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Sezioni principali -->
+  <!-- Sezioni delle "pagine" (SPA) -->
   <main>
     <!-- Home -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h2>Benvenuti nel Mondo Magico del Cinema</h2>
-        <p>Esplora il lato nerd e cult del grande schermo</p>
-        <a href="#home" class="button">Scopri di più</a>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>Benvenuti nel Mondo Magico del Cinema Nerd</h2>
+          <p>Scopri la passione per il cinema cult e la cultura nerd.</p>
+          <a href="#" class="button">Scopri di più</a>
+        </div>
+      </div>
+      <div class="content">
+        <p>Contenuti della pagina Home...</p>
       </div>
     </section>
 
-    <!-- Ultime Uscite -->
-    <section id="ultime-uscite" class="hero">
-      <div class="hero-content">
-        <h2>Ultime Uscite</h2>
-        <p>Scopri i film più recenti e imperdibili</p>
-        <a href="#ultime-uscite" class="button">Scopri di più</a>
+    <!-- Nuove Uscite -->
+    <section id="nuove-uscite" class="page">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>Nuove Uscite</h2>
+          <p>Scopri i film più recenti e imperdibili del panorama nerd.</p>
+          <a href="#" class="button">Scopri di più</a>
+        </div>
       </div>
-    </section>
-
-    <!-- Recensioni -->
-    <section id="recensioni" class="hero">
-      <div class="hero-content">
-        <h2>Recensioni</h2>
-        <p>Leggi le opinioni degli appassionati di cinema nerd</p>
-        <a href="#recensioni" class="button">Scopri di più</a>
+      <div class="content">
+        <p>Contenuti della pagina Nuove Uscite...</p>
       </div>
     </section>
 
     <!-- Contatti -->
-    <section id="contatti" class="hero">
-      <div class="hero-content">
-        <h2>Contatti</h2>
-        <p>Hai domande o suggerimenti? Siamo qui per te!</p>
-        <a href="#contatti" class="button">Scopri di più</a>
+    <section id="contatti" class="page">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>Contatti</h2>
+          <p>Hai domande o suggerimenti? Contattaci per saperne di più!</p>
+          <a href="#" class="button">Scopri di più</a>
+        </div>
+      </div>
+      <div class="content">
+        <p>Contenuti della pagina Contatti...</p>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="hero">
-      <div class="hero-content">
-        <h2>FAQ</h2>
-        <p>Risposte alle domande più frequenti sulla nostra community nerd</p>
-        <a href="#faq" class="button">Scopri di più</a>
+    <section id="faq" class="page">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>FAQ</h2>
+          <p>Risposte alle domande più frequenti sulla nostra community nerd.</p>
+          <a href="#" class="button">Scopri di più</a>
+        </div>
+      </div>
+      <div class="content">
+        <p>Contenuti della pagina FAQ...</p>
       </div>
     </section>
 
     <!-- Blog -->
-    <section id="blog" class="hero">
-      <div class="hero-content">
-        <h2>Blog</h2>
-        <p>Approfondimenti e curiosità dal mondo del cinema nerd e cult</p>
-        <a href="#blog" class="button">Scopri di più</a>
+    <section id="blog" class="page">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>Blog</h2>
+          <p>Approfondimenti e curiosità dal mondo del cinema nerd e cult.</p>
+          <a href="#" class="button">Scopri di più</a>
+        </div>
+      </div>
+      <div class="content">
+        <p>Contenuti della pagina Blog...</p>
       </div>
     </section>
   </main>
 
-  <!-- Footer con link a FAQ e Blog -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="#faq" class="footer-button">FAQ</a>
-      <a href="#blog" class="footer-button">Blog</a>
-    </div>
     <p>&copy; 2025 Il Mondo Magico del Cinema. Tutti i diritti riservati.</p>
   </footer>
 
-  <!-- JavaScript per lo smooth scrolling delle ancore -->
+  <!-- JavaScript per gestire la navigazione SPA -->
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    const links = document.querySelectorAll('a[data-target]');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+        const target = this.getAttribute('data-target');
+        // Nasconde tutte le pagine
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
         });
+        // Mostra la pagina selezionata
+        document.getElementById(target).classList.add('active');
       });
     });
   </script>
