@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CinemaMania - Il mondo del cinema</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header e navigazione -->
+  <header>
+    <div class="container">
+      <h1>CinemaMania</h1>
+      <nav id="main-nav">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ultime-uscite">Ultime Uscite</a></li>
+          <li><a href="#recensioni">Recensioni</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <!-- Bottone per il menu mobile -->
+        <button id="menu-toggle" aria-label="Apri menu">
+          &#9776;
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sezione principale -->
+  <main>
+    <!-- Sezione Home -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h2>Benvenuti nel mondo del cinema</h2>
+        <p>Scopri le ultime novità, recensioni e approfondimenti sul grande schermo.</p>
+      </div>
+    </section>
+
+    <!-- Sezione Ultime Uscite -->
+    <section id="ultime-uscite" class="section">
+      <div class="container">
+        <h2>Ultime Uscite</h2>
+        <div class="movie-grid">
+          <!-- Scheda film 1 -->
+          <article class="movie-card">
+            <img src="img/film1.jpg" alt="Titolo film 1">
+            <h3>Titolo film 1</h3>
+            <p>Breve descrizione del film.</p>
+          </article>
+          <!-- Scheda film 2 -->
+          <article class="movie-card">
+            <img src="img/film2.jpg" alt="Titolo film 2">
+            <h3>Titolo film 2</h3>
+            <p>Breve descrizione del film.</p>
+          </article>
+          <!-- Aggiungi altre schede secondo necessità -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione Recensioni -->
+    <section id="recensioni" class="section">
+      <div class="container">
+        <h2>Recensioni</h2>
+        <article class="review">
+          <h3>Film in primo piano</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae eros nec urna placerat dictum.</p>
+        </article>
+        <!-- Altre recensioni -->
+      </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section id="contatti" class="section">
+      <div class="container">
+        <h2>Contattaci</h2>
+        <form id="contact-form">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Messaggio:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Invia</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CinemaMania. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
