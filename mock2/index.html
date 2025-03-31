@@ -3,61 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Il Mondo del Cinema</title>
+  <title>Il Mondo Magico del Cinema</title>
   <style>
-    /* Stili di base */
-    body {
+    /* Reset di base */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-      transition: background 0.3s, color 0.3s;
-    }
-    header, footer {
-      background: #333;
+      /* Un background vibrante in gradiente */
+      background: linear-gradient(135deg, #FF5F6D, #FFC371);
       color: #fff;
-      text-align: center;
-      padding: 20px 0;
+      overflow-x: hidden;
+      position: relative;
     }
-    header h1 {
-      margin-bottom: 10px;
+    /* Sfondo animato con immagini Disney */
+    .bg-slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      display: flex;
+      animation: slide 30s linear infinite;
+      z-index: 1;
+    }
+    .bg-slider img {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* Overlay per migliorare la leggibilità */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 5;
+    }
+    /* Header: logo a sinistra, menu a destra */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.6);
+      position: relative;
+      z-index: 10;
+    }
+    header .logo img {
+      height: 50px;
     }
     nav ul {
       list-style: none;
-      padding: 0;
       display: flex;
-      justify-content: center;
     }
     nav ul li {
-      margin: 0 15px;
+      margin-left: 20px;
     }
     nav ul li a {
-      color: #fff;
       text-decoration: none;
+      color: #fff;
       font-weight: bold;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #f39c12;
+      color: #FFD700; /* colore oro al passaggio del mouse */
     }
+    /* Sezione Hero */
     .hero {
-      background: url('cinema-bg.jpg') no-repeat center center/cover;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      z-index: 10;
     }
     .hero h2 {
-      font-size: 2.5em;
-      margin: 0;
+      font-size: 2.8em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      margin-bottom: 10px;
     }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    /* Stile per i bottoni */
+    .button, button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .button:hover, button:hover {
+      background: #FFD700;
+      transform: scale(1.05);
+    }
+    /* Contenuto principale */
     .content {
       padding: 40px 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
+      position: relative;
+      z-index: 10;
     }
     .movie-grid {
       display: grid;
@@ -66,8 +125,8 @@
       margin-top: 20px;
     }
     .movie-card {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 15px;
       text-align: center;
       border-radius: 4px;
@@ -81,42 +140,30 @@
       height: auto;
       border-radius: 4px;
     }
-    /* Pulsante per il cambio tema */
-    #theme-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 15px;
-      font-size: 1em;
-      background: #333;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #theme-toggle:hover {
-      background: #f39c12;
-    }
-    /* Tema scuro */
-    .dark-theme {
-      background: #121212;
-      color: #eee;
-    }
-    .dark-theme header,
-    .dark-theme footer {
-      background: #1e1e1e;
-    }
-    .dark-theme .movie-card {
-      background: #1e1e1e;
-      border-color: #444;
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-  <!-- Header e navigazione -->
+  <!-- Sfondo animato con immagini -->
+  <div class="bg-slider">
+    <img src="lion-king.jpg" alt="Il Re Leone">
+    <img src="coco.jpg" alt="Coco">
+  </div>
+  <!-- Overlay per migliorare la leggibilità del contenuto -->
+  <div class="overlay"></div>
+
+  <!-- Header: logo a sinistra, menu a destra -->
   <header>
-    <h1>Il Mondo del Cinema</h1>
+    <div class="logo">
+      <img src="logo.png" alt="Logo Cinema Magico">
+    </div>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -129,24 +176,26 @@
 
   <!-- Sezione Hero -->
   <section class="hero" id="home">
-    <h2>Scopri le Novità dal Grande Schermo</h2>
+    <h2>Benvenuti nel Mondo Magico del Cinema</h2>
+    <p>Scopri le novità e le meraviglie del grande schermo</p>
+    <a href="#ultime-uscite" class="button">Esplora Ora</a>
   </section>
 
   <!-- Contenuto principale -->
   <section class="content">
     <h2 id="ultime-uscite">Ultime Uscite</h2>
     <div class="movie-grid">
+      <!-- Schede film: aggiungi quante schede desideri -->
       <div class="movie-card">
         <img src="film1.jpg" alt="Titolo Film 1">
         <h3>Titolo Film 1</h3>
-        <p>Breve descrizione del film. Un'avventura epica sul grande schermo.</p>
+        <p>Breve descrizione del film.</p>
       </div>
       <div class="movie-card">
         <img src="film2.jpg" alt="Titolo Film 2">
         <h3>Titolo Film 2</h3>
-        <p>Descrizione breve del film. Una storia coinvolgente e appassionante.</p>
+        <p>Breve descrizione del film.</p>
       </div>
-      <!-- Aggiungi ulteriori schede per altri film -->
     </div>
 
     <h2 id="recensioni" style="margin-top:40px;">Recensioni</h2>
@@ -163,26 +212,13 @@
       <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin:5px 0;"><br>
       <label for="messaggio">Messaggio:</label><br>
       <textarea id="messaggio" name="messaggio" rows="5" required style="width:100%; padding:8px; margin:5px 0;"></textarea><br>
-      <button type="submit" style="padding:10px 20px; background:#333; color:#fff; border:none; cursor:pointer;">Invia</button>
+      <button type="submit">Invia</button>
     </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Il Mondo del Cinema. Tutti i diritti riservati.</p>
+    <p>&copy; 2025 Cinema Magico. Tutti i diritti riservati.</p>
   </footer>
-
-  <!-- Script JavaScript per interazioni -->
-  <script>
-    // Pulsante per il cambio tema scuro/chiaro
-    const themeToggle = document.createElement('button');
-    themeToggle.id = 'theme-toggle';
-    themeToggle.textContent = 'Cambia Tema';
-    document.body.appendChild(themeToggle);
-
-    themeToggle.addEventListener('click', function() {
-      document.body.classList.toggle('dark-theme');
-    });
-  </script>
 </body>
 </html>
