@@ -100,3 +100,165 @@
   <script src="script.js"></script>
 </body>
 </html>
+/* Reset di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header e navigazione */
+header {
+  background: #222;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header h1 {
+  float: left;
+  margin-left: 20px;
+}
+
+nav {
+  float: right;
+  margin-right: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  margin-left: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #f39c12;
+}
+
+/* Bottone menu mobile */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Sezione Hero */
+.hero {
+  background: url('img/cinema-bg.jpg') no-repeat center center/cover;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* Sezioni */
+.section {
+  padding: 60px 0;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+/* Griglia film */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form di contatto */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact-form label {
+  margin: 10px 0 5px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#contact-form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+#contact-form button:hover {
+  background: #f39c12;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1, nav {
+    float: none;
+    text-align: center;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    display: none; /* Nasconde il menu per dispositivi piccoli */
+  }
+  
+  #menu-toggle {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .nav-list.active {
+    display: flex;
+  }
+}
