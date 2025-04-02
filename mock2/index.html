@@ -17,7 +17,7 @@
       color: #fff;
       line-height: 1.6;
     }
-    /* Header: logo a sinistra e menu a destra */
+    /* Header */
     header {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px 40px;
@@ -60,7 +60,7 @@
     .page.active {
       display: block;
     }
-    /* Sezione Hero per ogni pagina */
+    /* Sezione Hero */
     .hero {
       height: 400px;
       background: url('nerd-cinema.jpg') no-repeat center center/cover;
@@ -69,6 +69,10 @@
       justify-content: center;
       position: relative;
       margin-bottom: 20px;
+    }
+    /* Sfondo specifico per la Home */
+    #home .hero {
+      background: url('cinema-home.jpg') no-repeat center center/cover;
     }
     .hero::after {
       content: "";
@@ -107,6 +111,48 @@
       background: #FFD700;
       transform: scale(1.05);
     }
+    /* Sezione Content Generico */
+    .section-content {
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .flex-item {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+    .flex-item img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    /* Grid layout per Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
     /* Footer */
     footer {
       background: rgba(0,0,0,0.8);
@@ -134,7 +180,7 @@
     </div>
   </header>
 
-  <!-- Sezioni delle "pagine" (SPA) -->
+  <!-- Sezioni della SPA -->
   <main>
     <!-- Home -->
     <section id="home" class="page active">
@@ -145,8 +191,14 @@
           <a href="#" class="button">Scopri di più</a>
         </div>
       </div>
-      <div class="content">
-        <p>Contenuti della pagina Home...</p>
+      <div class="section-content flex-container">
+        <div class="flex-item">
+          <h3>La Nostra Storia</h3>
+          <p>Da anni celebriamo il mondo del cinema con una passione nerd che ci distingue. Scopri la nostra storia e unisciti alla community!</p>
+        </div>
+        <div class="flex-item">
+          <img src="home-history.jpg" alt="Storia del Cinema Nerd">
+        </div>
       </div>
     </section>
 
@@ -159,8 +211,30 @@
           <a href="#" class="button">Scopri di più</a>
         </div>
       </div>
-      <div class="content">
-        <p>Contenuti della pagina Nuove Uscite...</p>
+      <div class="section-content">
+        <h3>Ultimi Film</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="film1.jpg" alt="Film 1">
+            <h3>Film 1</h3>
+            <p>Una breve descrizione di Film 1, un must per ogni appassionato.</p>
+          </div>
+          <div class="card">
+            <img src="film2.jpg" alt="Film 2">
+            <h3>Film 2</h3>
+            <p>Scopri questo nuovo titolo imperdibile per gli amanti del genere.</p>
+          </div>
+          <div class="card">
+            <img src="film3.jpg" alt="Film 3">
+            <h3>Film 3</h3>
+            <p>Una novità da non perdere, con una trama avvincente e originale.</p>
+          </div>
+          <div class="card">
+            <img src="film4.jpg" alt="Film 4">
+            <h3>Film 4</h3>
+            <p>Per una serata all'insegna del divertimento e delle emozioni forti.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -169,12 +243,32 @@
       <div class="hero">
         <div class="hero-content">
           <h2>Contatti</h2>
-          <p>Hai domande o suggerimenti? Contattaci per saperne di più!</p>
+          <p>Hai domande o suggerimenti? Siamo qui per te!</p>
           <a href="#" class="button">Scopri di più</a>
         </div>
       </div>
-      <div class="content">
-        <p>Contenuti della pagina Contatti...</p>
+      <div class="section-content flex-container">
+        <div class="flex-item">
+          <img src="contact-illustration.jpg" alt="Contattaci">
+        </div>
+        <div class="flex-item">
+          <h3>Contattaci</h3>
+          <form>
+            <div style="margin-bottom: 10px;">
+              <label for="name">Nome:</label><br>
+              <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="email">Email:</label><br>
+              <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+              <label for="message">Messaggio:</label><br>
+              <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 8px;"></textarea>
+            </div>
+            <button type="submit" class="button">Invia</button>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -183,12 +277,26 @@
       <div class="hero">
         <div class="hero-content">
           <h2>FAQ</h2>
-          <p>Risposte alle domande più frequenti sulla nostra community nerd.</p>
+          <p>Risposte alle domande più frequenti della nostra community nerd.</p>
           <a href="#" class="button">Scopri di più</a>
         </div>
       </div>
-      <div class="content">
-        <p>Contenuti della pagina FAQ...</p>
+      <div class="section-content">
+        <h3>Domande Frequenti</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Domanda 1</h4>
+            <p>Risposta sintetica alla domanda 1.</p>
+          </div>
+          <div class="card">
+            <h4>Domanda 2</h4>
+            <p>Risposta sintetica alla domanda 2.</p>
+          </div>
+          <div class="card">
+            <h4>Domanda 3</h4>
+            <p>Risposta sintetica alla domanda 3.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -201,8 +309,25 @@
           <a href="#" class="button">Scopri di più</a>
         </div>
       </div>
-      <div class="content">
-        <p>Contenuti della pagina Blog...</p>
+      <div class="section-content">
+        <h3>Ultimi Articoli</h3>
+        <div class="grid">
+          <div class="card">
+            <img src="blog1.jpg" alt="Articolo 1">
+            <h3>Articolo 1</h3>
+            <p>Anteprima dell'articolo 1, per scoprire curiosità e approfondimenti.</p>
+          </div>
+          <div class="card">
+            <img src="blog2.jpg" alt="Articolo 2">
+            <h3>Articolo 2</h3>
+            <p>Anteprima dell'articolo 2, per conoscere le ultime novità dal mondo nerd.</p>
+          </div>
+          <div class="card">
+            <img src="blog3.jpg" alt="Articolo 3">
+            <h3>Articolo 3</h3>
+            <p>Anteprima dell'articolo 3, per rimanere aggiornato sul cinema cult.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -212,18 +337,16 @@
     <p>&copy; 2025 Il Mondo Magico del Cinema. Tutti i diritti riservati.</p>
   </footer>
 
-  <!-- JavaScript per gestire la navigazione SPA -->
+  <!-- JavaScript per la navigazione SPA -->
   <script>
     const links = document.querySelectorAll('a[data-target]');
     links.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const target = this.getAttribute('data-target');
-        // Nasconde tutte le pagine
         document.querySelectorAll('.page').forEach(page => {
           page.classList.remove('active');
         });
-        // Mostra la pagina selezionata
         document.getElementById(target).classList.add('active');
       });
     });
