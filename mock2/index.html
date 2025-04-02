@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Il Mondo Magico del Cinema Nerd</title>
+  <!-- Importo un font moderno per il logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reset e stili di base */
     * {
@@ -30,8 +32,28 @@
       justify-content: space-between;
       align-items: center;
     }
-    .logo img {
-      height: 50px;
+    /* Nuovo logo: immagine + testo */
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-img {
+      max-height: 50px;
+      width: auto;
+      /* Se l'immagine è molto grande, questo la adatta */
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8em;
+      color: #fff;
+      margin-left: 10px;
+      /* Per armonizzarlo, si può aggiungere un leggero effetto ombra */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     nav ul {
       list-style: none;
@@ -166,8 +188,11 @@
   <!-- Header con logo e menu -->
   <header>
     <div class="header-container">
-      <div class="logo">
-        <a href="#" data-target="home"><img src="logo-nerd.png" alt="Logo Nerd Cinema"></a>
+      <div class="logo-container">
+        <a href="#" data-target="home">
+          <img src="image.png" alt="Logo" class="logo-img">
+          <span class="logo-text">Cinema Buddy</span>
+        </a>
       </div>
       <nav>
         <ul>
