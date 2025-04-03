@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cinema Buddy</title>
-  <!-- Import dei font moderni: Orbitron per titoli e logo, Roboto per il testo -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <title>Cinema Buddy - SPA</title>
+  <!-- Import del font Playfair Display per tutto il sito -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reset e stili base */
     * {
@@ -14,7 +14,7 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Playfair Display', serif;
       background: linear-gradient(135deg, #FF5F6D, #FFC371);
       color: #fff;
       line-height: 1.6;
@@ -44,13 +44,13 @@
       animation: slideDown 0.5s ease-out;
     }
     .header-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: auto;
     }
-    /* Logo: immagine (image.png) e testo */
+    /* Nuovo logo: immagine + testo */
     .logo-container {
       display: flex;
       align-items: center;
@@ -65,10 +65,9 @@
       width: auto;
     }
     .logo-text {
-      font-family: 'Orbitron', sans-serif;
       font-size: 1.8em;
-      color: #fff;
       margin-left: 10px;
+      color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     nav ul {
@@ -86,7 +85,15 @@
       color: #FFD700;
     }
     
-    /* Hero Section: aspect-ratio mobile-first (16:9) */
+    /* Sezioni: ogni voce del menu è una sezione separata */
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 1s ease-in;
+    }
+    
+    /* Hero Section: mobile-first aspect ratio 16:9 (19:9 per schermi più larghi) */
     .hero {
       position: relative;
       width: 100%;
@@ -94,13 +101,11 @@
       background: url('hero-illustration.jpg') no-repeat center center/cover;
       animation: fadeIn 1s ease-in;
     }
-    /* Se adattare a schermi 19:9 */
     @media (min-aspect-ratio: 19/9) {
       .hero {
         aspect-ratio: 19 / 9;
       }
     }
-    /* Overlay per darkening */
     .hero::after {
       content: "";
       position: absolute;
@@ -118,13 +123,16 @@
       animation: slideUp 0.8s ease-out;
     }
     .hero-content h1 {
-      font-family: 'Orbitron', sans-serif;
       font-size: 2em;
       margin-bottom: 10px;
     }
     .hero-content p {
       font-size: 1em;
       margin-bottom: 20px;
+    }
+    /* Specifico per la Home: sfondo diverso */
+    #home .hero {
+      background: url('cinema-home.jpg') no-repeat center center/cover;
     }
     
     /* Bottoni (CTA) uniformi e interattivi */
@@ -138,7 +146,6 @@
       text-decoration: none;
       cursor: pointer;
       transition: background 0.3s, color 0.3s, transform 0.3s;
-      font-family: 'Orbitron', sans-serif;
     }
     .button:hover {
       transform: scale(1.05);
@@ -146,13 +153,7 @@
       color: #000;
     }
     
-    /* Sezioni generiche */
-    section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-      animation: fadeIn 1s ease-in;
-    }
+    /* Blocco di contenuto generico */
     .section-content {
       background: rgba(0,0,0,0.5);
       padding: 20px;
@@ -160,8 +161,7 @@
       margin-top: 20px;
       animation: slideUp 0.8s ease-out;
     }
-    
-    /* Grid per cards (es. news, blog, etc.) */
+    /* Grid layout per cards (News, Blog, FAQ, ecc.) */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -186,7 +186,7 @@
       margin-bottom: 10px;
     }
     
-    /* Footer minimal */
+    /* Footer Minimal */
     footer {
       background: rgba(0,0,0,0.8);
       padding: 20px;
@@ -228,35 +228,47 @@
     </div>
   </header>
   
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Il tuo buddy è qui per aiutarti a scegliere</h1>
-      <p>Scopri le ultime novità dal mondo del cinema e della cultura nerd.</p>
-      <a href="#" class="button">Scopri di più</a>
+  <!-- Home Section -->
+  <section id="home">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Il tuo buddy è qui per aiutarti a scegliere</h1>
+        <p>Scopri le ultime novità dal mondo del cinema e della cultura nerd.</p>
+        <a href="#" class="button">Scopri di più</a>
+      </div>
+    </div>
+    <div class="section-content">
+      <h2>Benvenuto</h2>
+      <p>Qui potrai trovare tutto ciò che riguarda il cinema nerd, dalle ultime notizie ai consigli per scegliere il film perfetto per la tua serata.</p>
     </div>
   </section>
   
-  <!-- Sezione News (esempio) -->
+  <!-- News Section -->
   <section id="news">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>News</h1>
+        <p>Rimani aggiornato con le ultime notizie dal mondo nerd.</p>
+        <a href="#" class="button">Leggi le news</a>
+      </div>
+    </div>
     <div class="section-content">
       <h2>Ultime Notizie</h2>
-      <p>Rimani aggiornato sulle novità dal mondo del cinema nerd.</p>
       <div class="grid">
         <div class="card">
-          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="News 1">
+          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="Notizia 1">
           <h3>Notizia 1</h3>
           <p>Dettagli e approfondimenti per gli amanti del cinema geek.</p>
           <a href="#" class="button">Leggi di più</a>
         </div>
         <div class="card">
-          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="News 2">
+          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="Notizia 2">
           <h3>Notizia 2</h3>
           <p>Ultime novità e curiosità dal mondo dei film cult.</p>
           <a href="#" class="button">Leggi di più</a>
         </div>
         <div class="card">
-          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="News 3">
+          <img src="https://fastly.picsum.photos/id/609/1920/800.jpg?blur=10" alt="Notizia 3">
           <h3>Notizia 3</h3>
           <p>Approfondimenti e analisi per veri appassionati.</p>
           <a href="#" class="button">Leggi di più</a>
@@ -265,55 +277,61 @@
     </div>
   </section>
   
-  <!-- Sezione Contatti -->
+  <!-- Contatti Section -->
   <section id="contatti">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Contatti</h1>
+        <p>Hai domande o suggerimenti? Siamo qui per te!</p>
+        <a href="#" class="button">Contattaci</a>
+      </div>
+    </div>
     <div class="section-content">
       <h2>Contattaci</h2>
-      <p>Hai domande o suggerimenti? Siamo qui per te!</p>
-      <div class="flex-container">
-        <div class="flex-item">
-          <img src="contact-illustration.jpg" alt="Contattaci">
+      <p>Compila il form qui sotto per metterti in contatto con noi:</p>
+      <form>
+        <div style="margin-bottom: 10px;">
+          <label for="name">Nome:</label><br>
+          <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
         </div>
-        <div class="flex-item">
-          <form>
-            <div style="margin-bottom: 10px;">
-              <label for="name">Nome:</label><br>
-              <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
-            </div>
-            <div style="margin-bottom: 10px;">
-              <label for="email">Email:</label><br>
-              <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
-            </div>
-            <div style="margin-bottom: 10px;">
-              <label for="message">Messaggio:</label><br>
-              <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 8px;"></textarea>
-            </div>
-            <button type="submit" class="button">Invia</button>
-          </form>
+        <div style="margin-bottom: 10px;">
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
         </div>
-      </div>
+        <div style="margin-bottom: 10px;">
+          <label for="message">Messaggio:</label><br>
+          <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 8px;"></textarea>
+        </div>
+        <button type="submit" class="button">Invia</button>
+      </form>
     </div>
   </section>
   
-  <!-- Sezione FAQ -->
+  <!-- FAQ Section -->
   <section id="faq">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>FAQ</h1>
+        <p>Risposte alle domande più frequenti per gli appassionati di cinema nerd.</p>
+        <a href="#" class="button">Scopri di più</a>
+      </div>
+    </div>
     <div class="section-content">
-      <h2>FAQ</h2>
-      <p>Risposte alle domande più frequenti per gli appassionati di cinema nerd.</p>
+      <h2>Domande Frequenti</h2>
       <div class="grid">
         <div class="card">
           <h4>Qual è il film cult più amato dalla community?</h4>
-          <p>"Blade Runner" è un classico per la sua visione futuristica e il profondo significato, insieme a titoli come "Pulp Fiction".</p>
-          <a href="#" class="button">Scopri di più</a>
+          <p>"Blade Runner" è considerato un classico grazie alla sua visione futuristica e al profondo significato simbolico.</p>
+          <a href="#" class="button">Approfondisci</a>
         </div>
         <div class="card">
           <h4>Come rimanere aggiornato sulle nuove uscite?</h4>
-          <p>Visita regolarmente la sezione News e iscriviti alla newsletter per tutte le novità dal mondo nerd.</p>
+          <p>Visita regolarmente la sezione News e iscriviti alla nostra newsletter per tutte le novità.</p>
           <a href="#" class="button">Iscriviti</a>
         </div>
         <div class="card">
           <h4>Quali festival cinematografici seguire?</h4>
-          <p>Cannes, Sundance e il Festival di Venezia sono imperdibili per chi ama il cinema d'autore e cult.</p>
+          <p>Festival come Cannes, Sundance e il Festival di Venezia sono imperdibili per chi ama il cinema cult.</p>
           <a href="#" class="button">Scopri di più</a>
         </div>
         <div class="card">
@@ -325,11 +343,17 @@
     </div>
   </section>
   
-  <!-- Sezione Blog -->
+  <!-- Blog Section -->
   <section id="blog">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Blog</h1>
+        <p>Approfondimenti e curiosità dal mondo del cinema nerd e cult.</p>
+        <a href="#" class="button">Leggi di più</a>
+      </div>
+    </div>
     <div class="section-content">
-      <h2>Blog</h2>
-      <p>Approfondimenti e curiosità dal mondo del cinema nerd e cult.</p>
+      <h2>Ultimi Articoli</h2>
       <div class="grid">
         <div class="card">
           <img src="blog1.jpg" alt="Articolo 1">
@@ -358,7 +382,7 @@
     <p>&copy; 2025 Cinema Buddy. Tutti i diritti riservati.</p>
   </footer>
   
-  <!-- JavaScript per navigazione SPA (scrolling smooth tra sezioni) -->
+  <!-- JavaScript per navigazione SPA (scrolling smooth) -->
   <script>
     const links = document.querySelectorAll('a[data-target]');
     links.forEach(link => {
