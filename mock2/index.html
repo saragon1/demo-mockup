@@ -17,7 +17,7 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    /* Header e navigazione */
+    /* Header e Navigazione */
     header {
       background: rgba(0,0,0,0.8);
       padding: 20px;
@@ -58,23 +58,22 @@
     }
     nav ul li a:hover { color: #FFD700; }
     
-    /* Sezioni – ogni "pagina" è una sezione separata */
+    /* Sezioni: ogni “pagina” è una sezione separata */
     section {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
     
-    /* Hero Section */
+    /* Hero Section – impostata con aspect-ratio mobile-first 16:9 (19:9 per schermi larghi) */
     .hero {
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       background: url('hero-illustration.jpg') no-repeat center center/cover;
     }
-    /* Per schermi con rapporto 19:9 */
     @media (min-aspect-ratio: 19/9) {
-      .hero { aspect-ratio: 19/9; }
+      .hero { aspect-ratio: 19 / 9; }
     }
     .hero::after {
       content: "";
@@ -92,7 +91,7 @@
     .hero-content h1 { font-size: 2em; margin-bottom: 10px; }
     .hero-content p { font-size: 1em; margin-bottom: 20px; }
     
-    /* Sezione Home: sfondo diverso per l'hero */
+    /* Specifico per la Home: sfondo diverso per l'hero */
     #home .hero { background: url('cinema-home.jpg') no-repeat center center/cover; }
     
     /* Bottoni (CTA) uniformi e interattivi */
@@ -102,196 +101,4 @@
       background: #FF5F6D;
       color: #fff;
       border: none;
-      border-radius: 4px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, transform 0.3s;
-    }
-    .button:hover {
-      transform: scale(1.05);
-      background: #FFC371;
-      color: #000;
-    }
-    
-    /* Blocco di contenuto generico */
-    .section-content {
-      background: rgba(0,0,0,0.5);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-    
-    /* Footer Minimal */
-    footer {
-      background: rgba(0,0,0,0.8);
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-    
-    /* Media query per dispositivi più larghi */
-    @media (min-width: 768px) {
-      .hero-content h1 { font-size: 3em; }
-      .hero-content p { font-size: 1.2em; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="logo-container">
-        <a href="#home">
-          <img src="image.png" alt="Logo" class="logo-img">
-          <span class="logo-text">Cinema Buddy</span>
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#blog">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <!-- Sezione Home -->
-  <section id="home">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Il tuo buddy è qui per aiutarti a scegliere</h1>
-        <p>Scopri le ultime novità dal mondo del cinema e della cultura nerd.</p>
-        <a href="#news" class="button">Esplora News</a>
-      </div>
-    </div>
-    <div class="section-content">
-      <h2>Benvenuto su Cinema Buddy</h2>
-      <p>Qui troverai recensioni, approfondimenti e consigli per scegliere il film perfetto per te. Utilizza il menu per navigare alle altre sezioni.</p>
-    </div>
-  </section>
-  
-  <!-- Sezione News -->
-  <section id="news">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>News</h1>
-        <p>Rimani aggiornato con le novità dal mondo nerd.</p>
-        <a href="#news" class="button">Leggi le News</a>
-      </div>
-    </div>
-    <div class="section-content">
-      <h2>Ultime Notizie</h2>
-      <p>(Contenuto in sviluppo...)</p>
-    </div>
-  </section>
-  
-  <!-- Sezione Contatti -->
-  <section id="contatti">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Contatti</h1>
-        <p>Hai domande o suggerimenti? Siamo qui per te!</p>
-        <a href="#contatti" class="button">Contattaci</a>
-      </div>
-    </div>
-    <div class="section-content">
-      <h2>Contattaci</h2>
-      <p>Compila il form seguente per inviarci un messaggio:</p>
-      <form>
-        <div style="margin-bottom: 10px;">
-          <label for="name">Nome:</label><br>
-          <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
-        </div>
-        <div style="margin-bottom: 10px;">
-          <label for="email">Email:</label><br>
-          <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
-        </div>
-        <div style="margin-bottom: 10px;">
-          <label for="message">Messaggio:</label><br>
-          <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 8px;"></textarea>
-        </div>
-        <button type="submit" class="button">Invia</button>
-      </form>
-    </div>
-  </section>
-  
-  <!-- Sezione FAQ -->
-  <section id="faq">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>FAQ</h1>
-        <p>Risposte alle domande più frequenti per gli appassionati di cinema nerd.</p>
-        <a href="#faq" class="button">Scopri di più</a>
-      </div>
-    </div>
-    <div class="section-content">
-      <h2>Domande Frequenti</h2>
-      <div class="grid">
-        <div class="card">
-          <h4>Qual è il film cult più amato?</h4>
-          <p>"Blade Runner" è considerato un classico grazie alla sua visione futuristica e al profondo significato simbolico.</p>
-          <a href="#" class="button">Approfondisci</a>
-        </div>
-        <div class="card">
-          <h4>Come rimanere aggiornato?</h4>
-          <p>Iscriviti alla newsletter per ricevere tutte le novità sul cinema nerd direttamente nella tua casella email.</p>
-          <a href="#" class="button">Iscriviti</a>
-        </div>
-        <div class="card">
-          <h4>Quali festival seguire?</h4>
-          <p>Cannes, Sundance e Venezia sono tra i più importanti per il cinema d'autore e cult.</p>
-          <a href="#" class="button">Scopri di più</a>
-        </div>
-        <div class="card">
-          <h4>Come partecipare alla community?</h4>
-          <p>Unisciti ai nostri gruppi social e partecipa agli eventi per condividere la tua passione.</p>
-          <a href="#" class="button">Unisciti ora</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Sezione Blog -->
-  <section id="blog">
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Blog</h1>
-        <p>Approfondimenti e curiosità dal mondo del cinema nerd e cult.</p>
-        <a href="#blog" class="button">Leggi di più</a>
-      </div>
-    </div>
-    <div class="section-content">
-      <h2>Ultimi Articoli</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="blog1.jpg" alt="Articolo 1">
-          <h3>Articolo 1</h3>
-          <p>Scopri curiosità e approfondimenti dal mondo del cinema.</p>
-          <a href="#" class="button">Leggi di più</a>
-        </div>
-        <div class="card">
-          <img src="blog2.jpg" alt="Articolo 2">
-          <h3>Articolo 2</h3>
-          <p>Le ultime novità e analisi per gli appassionati di film cult.</p>
-          <a href="#" class="button">Leggi di più</a>
-        </div>
-        <div class="card">
-          <img src="blog3.jpg" alt="Articolo 3">
-          <h3>Articolo 3</h3>
-          <p>Approfondimenti e storie dal dietro le quinte del cinema nerd.</p>
-          <a href="#" class="button">Leggi di più</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Cinema Buddy. Tutti i diritti riservati.</p>
-  </footer>
-</body>
-</html>
+      border-radius: 4
